@@ -18,9 +18,9 @@ public class ConfigServerApplication {
     @Controller
     @ResponseBody
     class ConfigurationHttpController {
-        private final ConfigurationRepository configurationRepository;
+        private ConfigurationRepository configurationRepository;
 
-        ConfigurationHttpController(ConfigurationRepository configurationRepository) {
+          ConfigurationHttpController(ConfigurationRepository configurationRepository) {
             this.configurationRepository = configurationRepository;
         }
 
@@ -33,6 +33,6 @@ public class ConfigServerApplication {
     interface ConfigurationRepository extends CrudRepository<Configuration, String> {
     }
 
-    record Configuration(@Id String Name, String configuration) {
+    public record Configuration(@Id String Name, String configuration) {
     }
 }
